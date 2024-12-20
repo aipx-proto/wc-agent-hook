@@ -8,6 +8,7 @@
   "main": "src/lib.js",
   "module": "src/lib.js",
   "types": "src/lib.d.ts",
+  "type": "module",
   "exports": {
     ".": {
       "import": "./src/lib.js"
