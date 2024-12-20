@@ -1,2 +1,3 @@
-# wc-agent-hook
+# WC Agent Hook
+
 Agentic upgrade for any web page
