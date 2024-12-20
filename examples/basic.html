@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Example</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.2/p5.js"></script>
+    <script src="https://esm.sh/gh/aipx-proto/wc-agent-hook@v1.0.0" type="module"></script>
+    <script>
+      let boxWidth = 100;
+      let boxHeight = 100;
+      let boxColor = "#ff0000";
+
+      agent.getTools = () => {
+        const setSizeTool = {
+          name: "setSize",
+          description: "Set the size of box",
+          parameters: z.object({
+            size: z.number().min(0).max(100).description("Size of the box, in pixel"),
+          }),
+          run: ({ size }) => {
+            boxWidth = size;
+            boxHeight = size;
+
+            return `Size is updated to ${size}`;
+          },
+        };
+
+        const changeColorTool = {
+          name: "changeColor",
+          description: "Change the color of box",
+          parameters: z.object({
+            color: z.enum(["#ff0000", "#00ff00", "#0000ff"]).description("Color of the box"),
+          }),
+          run: ({ color }) => {
+            boxColor = color;
+
+            return `Color is updated to ${color}`;
+          },
+        };
+
+        return [setSizeTool, changeColorTool];
+      };
+
+      agent.getState = () => {
+        return `
+The current box looks like this:
+width: ${boxWidth}
+height: ${boxHeight} 
+color: ${boxColor}
+      `;
+      };
+
+      function setup() {
+        createCanvas(400, 400);
+      }
+
+      function draw() {
+        background(220);
+        fill(boxColor);
+        rect(150, 150, boxWidth, boxHeight);
+      }
+    </script>
+  </body>
+</html>

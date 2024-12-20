@@ -7,7 +7,11 @@ Agentic upgrade for any web page
 In your HTML, add the following script tag, before your main script tag:
 
 ```html
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.2/p5.js"></script>
 <script src="https://esm.sh/gh/aipx-proto/wc-agent-hook@v1.0.0" type="module"></script>
+<script type="module">
+  // Your P5.js promgram goes here
+</script>
 ```
 
 In your main script, you can use `agent` and `z` object to expose tools and state for agent.
@@ -15,7 +19,7 @@ In your main script, you can use `agent` and `z` object to expose tools and stat
 ```js
 let boxWidth = 100;
 let boxHeight = 100;
-let color = "red";
+let boxColor = "red";
 
 /** The agent will call `getTools()` to see what tools it can use */
 agent.getTools = () => {
@@ -45,7 +49,7 @@ agent.getTools = () => {
     }),
     run: ({ color }) => {
       /* Do something when a new color is set by the agent */
-      color = color;
+      boxColor = color;
 
       /* Give text feedback to the agent */
       return `Color is updated to ${color}`;
@@ -63,7 +67,7 @@ agent.getState = () => {
 The current box looks like this:
 width: ${boxWidth}
 height: ${boxHeight} 
-color: ${color}
+color: ${boxColor}
       `;
 };
 ```
