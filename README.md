@@ -10,7 +10,8 @@ In your HTML, add the following script tag, before your main script tag:
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.2/p5.js"></script>
 <script src="https://esm.sh/gh/aipx-proto/wc-agent-hook@v1.0.0" type="module"></script>
 <script type="module">
-  // Your P5.js promgram goes here. You must use instance mode
+  // Your P5.js promgram goes here. Note that you must use instance mode
+  // See details: https://github.com/processing/p5.js/wiki/Global-and-instance-mode
 </script>
 ```
 

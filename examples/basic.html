@@ -24,14 +24,12 @@
         let boxHeight = 100;
         let boxColor = "#ff0000";
 
-        p.agent = {};
-
-        p.agent.getTools = () => {
+        agent.getTools = () => {
           const setSizeTool = {
             name: "setSize",
             description: "Set the size of box",
             parameters: z.object({
-              size: z.number().min(0).max(100).description("Size of the box, in pixel"),
+              size: z.number().min(0).max(100),
             }),
             run: ({ size }) => {
               boxWidth = size;
@@ -45,7 +43,7 @@
             name: "changeColor",
             description: "Change the color of box",
             parameters: z.object({
-              color: z.enum(["#ff0000", "#00ff00", "#0000ff"]).description("Color of the box"),
+              color: z.enum(["#ff0000", "#00ff00", "#0000ff"]),
             }),
             run: ({ color }) => {
               boxColor = color;
@@ -57,7 +55,7 @@
           return [setSizeTool, changeColorTool];
         };
 
-        p.agent.getState = () => {
+        agent.getState = () => {
           return `
 The current box looks like this:
 width: ${boxWidth}
