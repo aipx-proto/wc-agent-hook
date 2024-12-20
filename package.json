@@ -5,6 +5,6 @@
   "main": "src/lib.js",
   "types": "src/lib.d.ts",
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "AIPX Team",
+  "license": "MIT"
 }
