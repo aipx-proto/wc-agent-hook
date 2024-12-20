@@ -1,0 +1,10 @@
+{
+  "name": "wc-agent-hook",
+  "version": "1.0.0",
+  "description": "Agentic upgrade for any web page",
+  "main": "src/lib.js",
+  "types": "src/lib.d.ts",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
