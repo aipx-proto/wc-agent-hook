@@ -1,5 +1,6 @@
 import { zodResponseFormat } from "https://esm.sh/openai@4.77.0/helpers/zod?bundle-deps";
 import z from "https://esm.sh/zod@3.24.1?bundle-deps";
+export * as z from "https://esm.sh/zod@3.24.1?bundle-deps";
 
 export const agent = {
   getTools: () => [],
