@@ -9,6 +9,8 @@ export interface AgentTool {
   name: string;
   description: string;
   /** zod object */
-  parameters: any;
+  parameters: OpenAICompatibleSchema;
   run: (params: any) => string | Promise<string>;
 }
+
+export type OpenAICompatibleSchema = Zod.ZodObject<{}, "strip", z.ZodTypeAny, {}, {}>;

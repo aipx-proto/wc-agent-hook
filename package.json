@@ -14,5 +14,8 @@
     }
   },
   "author": "AIPX Team",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "zod": "^3.24.1"
+  }
 }
