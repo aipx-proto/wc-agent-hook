@@ -22,7 +22,7 @@
       let sketch = (p) => {
         let boxWidth = 100;
         let boxHeight = 100;
-        let boxColor = "#ff0000";
+        let boxColor = "#ffff00";
 
         agent.getTools = () => {
           const setSizeTool = {
@@ -43,7 +43,7 @@
             name: "changeColor",
             description: "Change the color of box",
             parameters: z.object({
-              color: z.enum(["#ff0000", "#00ff00", "#0000ff"]),
+              color: z.string(),
             }),
             run: ({ color }) => {
               boxColor = color;
