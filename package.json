@@ -2,9 +2,17 @@
   "name": "wc-agent-hook",
   "version": "1.0.0",
   "description": "Agentic upgrade for any web page",
+  "files": [
+    "src"
+  ],
   "main": "src/lib.js",
+  "module": "src/lib.js",
   "types": "src/lib.d.ts",
-  "keywords": [],
+  "exports": {
+    ".": {
+      "import": "./src/lib.js"
+    }
+  },
   "author": "AIPX Team",
   "license": "MIT"
 }
