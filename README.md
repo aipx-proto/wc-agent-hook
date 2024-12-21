@@ -29,7 +29,7 @@ agent.getTools = () => {
     name: "setSize",
     description: "Set the size of box",
     parameters: z.object({
-      size: z.number().min(0).max(100).description("Size of the box, in pixel"),
+      size: z.number().min(0).max(100),
     }),
     run: ({ size }) => {
       /* Do something when a new size is set by the agent */
@@ -46,7 +46,7 @@ agent.getTools = () => {
     name: "changeColor",
     description: "Change the color of box",
     parameters: z.object({
-      color: z.enum(["red", "green", "blue"]).description("Color of the box"),
+      color: z.string(),
     }),
     run: ({ color }) => {
       /* Do something when a new color is set by the agent */
