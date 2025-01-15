@@ -72,8 +72,8 @@ color: ${boxColor}
       `;
 };
 
-/** Optionally, you can provide instructions for the agent. This will prevent the agent from interacting with other things on the page */
-agent.getInstructions = () => `You are a talented visual interaction engineer`;
+/** Optionally, you can provide additional hint on how to interpret state and how to use the tool */
+agent.hint = () => `The size and color of the box must be visually appealing. Now use the setSize and changeColor tool to make it so.`;
 ```
 
 ## `z` reference
