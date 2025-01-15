@@ -3,6 +3,7 @@ export const agent: AgentHook;
 export interface AgentHook {
   getTools: () => AgentTool[] | Promise<AgentTool[]>;
   getState: () => string | Promise<string>;
+  getInstructions: () => string | Promise<string>;
 }
 
 export interface AgentTool {

@@ -5,6 +5,7 @@ export * as z from "https://esm.sh/zod@3.24.1?bundle-deps";
 export const agent = {
   getTools: () => [],
   getState: () => "",
+  getInstructions: () => "",
 };
 
 window.agent = agent;
@@ -15,7 +16,7 @@ const toolMap = new Map();
 window.addEventListener("message", async (event) => {
   const data = event.data;
   switch (data.type) {
-    case "getTools":
+    case "getTools": {
       const tools = await agent.getTools();
       const serializableTools = [];
       tools.forEach((tool) => {
@@ -32,10 +33,20 @@ window.addEventListener("message", async (event) => {
       });
       event.ports[0].postMessage(serializableTools);
       break;
-    case "getState":
+    }
+
+    case "getState": {
       const state = await agent.getState();
       event.ports[0].postMessage(state);
       break;
+    }
+
+    case "getInstructions": {
+      const instructions = await agent.getInstructions();
+      event.ports[0].postMessage(instructions);
+      break;
+    }
+
     case "run": {
       const toolName = data.name;
       const output = await toolMap.get(toolName).run(data.args);
