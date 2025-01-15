@@ -5,7 +5,7 @@ export * as z from "https://esm.sh/zod@3.24.1?bundle-deps";
 export const agent = {
   getTools: () => [],
   getState: () => "",
-  getInstructions: () => "",
+  getHint: () => "",
 };
 
 window.agent = agent;
@@ -41,8 +41,8 @@ window.addEventListener("message", async (event) => {
       break;
     }
 
-    case "getInstructions": {
-      const instructions = await agent.getInstructions();
+    case "getHint": {
+      const instructions = await agent.getHint();
       event.ports[0].postMessage(instructions);
       break;
     }
